@@ -1,37 +1,17 @@
 
 import requests
+import urlutils
+import fileutils
 import sys
 from bs4 import BeautifulSoup
 import html
-def writeToFile(url, filePath):
-    page = requests.get(url)
-    file2 = open(filePath,"w")
-    file2.writelines(page.text)
-    file2.close()
-
-def writeToFile1(url, filePath):
-    #session = HTMLSession()
-    #res = session.get(url)
-    #res.html.render()
-    #page = res.html.raw_html.decode(res.encoding)
-    page = requests.get(url)
-
-    file2 = open(filePath,"w")
-    file2.writelines(page.text)
-    file2.close()    
-
-def readFromFile(filePath):
-    file1 = open(filePath,"r+")
-    fContent = file1.readlines()
-    file1.close()
-    return "\n".join(fContent)
 
 ##def getNifty50Links_old():
 ##    filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\nse.html"
 ##    url = "https://www.nseindia.com/live_market/dynaContent/live_watch/equities_stock_watch.htm"
-##    #writeToFile(url, filePath)
+##    urlutils.writeToFile(url, filePath)
 ##    #Read
-##    fContent = readFromFile(filePath)        
+##    fContent = fileutils.readFromFile(filePath)        
 ##    soup = BeautifulSoup(fContent, 'html.parser')
 ##    table = soup.find("table", { "id" : "dataTable" })
 ##    links = table.findAll('a')  
@@ -40,25 +20,12 @@ def readFromFile(filePath):
 ##        linkList.append(str(link))
 ##    return linkList
 
-
-def readCSVFile(filePath, delim):
-    file1 = open(filePath,"r+")
-    fLines = file1.readlines()
-    file1.close()
-    table = []
-    for line in fLines:
-        line = line.rstrip("\n")
-        if line:
-            rows = line.split(delim)
-            table.append(rows)
-    return table
-
 def getNifty50Scrips():
     filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\nse.csv"
     url = "https://www.nseindia.com/content/indices/ind_nifty50list.csv"
-    writeToFile(url, filePath)
+    urlutils.writeToFile(url, filePath)
     #Read csv
-    tab = readCSVFile(filePath, ',')   
+    tab = fileutils.readCSVFile(filePath, ',')   
     scrips = []
     for scrip in tab:
         #print("https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=%s" % scrip[2])
@@ -85,8 +52,8 @@ def printOIPerScrip(scrip, datee):
     #print(url)
     #print(filePath)
     #return
-    writeToFile1(url, filePath)
-    fLines = readFromFile(filePath)
+    urlutils.writeToFile(url, filePath)
+    fLines = fileutils.readFromFile(filePath)
     soup = BeautifulSoup(fLines, 'html.parser')
     table = soup.find("table", { "id" : "octable" })
     rows = table.findAll('tr') 
