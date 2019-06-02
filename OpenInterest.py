@@ -35,6 +35,7 @@ def getNifty50Scrips():
         scrips.append(scrip[2])
     scrips.pop(0) #remove first line
     return scrips
+    
 def print2console(rowstrs):
     print("=============================================")
     print ("%s-%s-%s-%s" % ("OI", "IV", "LTP", "Strike"))
