@@ -49,9 +49,6 @@ def print2html(rowstrs) :
 def printOIPerScrip(scrip, datee):
     url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTSTK&symbol=%s&date=%s" % (scrip.replace('&', '%26'), datee)
     filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\%s_oi.html" % scrip
-    #print(url)
-    #print(filePath)
-    #return
     urlutils.writeToFile(url, filePath)
     fLines = fileutils.readFromFile(filePath)
     soup = BeautifulSoup(fLines, 'html.parser')
@@ -64,24 +61,26 @@ def printOIPerScrip(scrip, datee):
             continue
         colstrs = []
         for col in cols:
+            # strip comma in 123,456,334  => 123,456,334
             coltxt = col.text.strip().replace(',','')
             if '-' in coltxt:
                 colstrs.append('0')
             else:
                 colstrs.append(coltxt)
         rowstrs.append(colstrs)
-
+        
     rowstrs.sort(key = lambda x: float(x[1]))
-    return print2html(rowstrs)
-    #rowstrs = Sort(rowstrs)
-
+    return rowstrs
 
 
 def openIs(datee):
-    #datee = "27JUN2019"
     nifty50Scrips = getNifty50Scrips()
-    str = ''
+    scriptDic = {}
     #for scrip in nifty50Scrips:
+    for scrip in [nifty50Scrips[0], nifty50Scrips[1], nifty50Scrips[2]]:
+        scriptDic(scrip) = printOIPerScrip(scrip, datee)
+
+    str = ''
     for scrip in [nifty50Scrips[0], nifty50Scrips[1], nifty50Scrips[2]]:
         print("=============================================")
         print("Scrip : %s" % scrip)
@@ -104,6 +103,7 @@ def openIs(datee):
     str1 = '<!DOCTYPE html> <html>' + strStyle + '<body> <table> <tr><th><ScripNme></th><th>OI</th><th>IV</th><th>LTP</th><th>Strike Price</th></tr> ' + str + '</table></body> </html>'
     file2 = open("C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html","w")
     file2.writelines(str1)
+    print ("manga.html generated")
     file2.close()
 
 openIs("27JUN2019")
