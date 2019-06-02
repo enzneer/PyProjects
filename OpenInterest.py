@@ -73,10 +73,10 @@ def print2console(rowstrs):
     print("=============================================")
 
 def print2html(rowstrs) :
-    str = "<td><table>"
-    for i in range(-4,-1):
+    str = "<td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>\n" % (rowstrs[-4][1], rowstrs[-4][4], rowstrs[-4][5], rowstrs[-4][11])
+    for i in range(-3,-1):
         str = str + '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%(rowstrs[i][1], rowstrs[i][4], rowstrs[i][5], rowstrs[i][11])
-    str = str + '</table></td>'
+    str = str + '</tr>'
     return str
 
 def printOIPerScrip(scrip, datee):
@@ -119,9 +119,9 @@ def openIs(datee):
         print("=============================================")
         print("Scrip : %s" % scrip)
         print("=============================================")
-        str = str + '<tr> <td>%s </td>' % scrip
+        str = str + '<tr> <td rowspan="3">%s </td>' % scrip
         col = printOIPerScrip(scrip, datee)
-        str = str + col + '</tr>'
+        str = str + col
 
     strStyle = '''<head>  
                 <style> 
@@ -134,7 +134,7 @@ def openIs(datee):
                 }
                 </style>
                 </head> '''
-    str1 = '<!DOCTYPE html> <html>' + strStyle + '<body> <table> <tr><th><ScripNme></th> <th><table><th>OI</th><th>IV</th><th>LTP</th><th>Strike Price</th></table></th></tr> ' + str + '</table></body> </html>'
+    str1 = '<!DOCTYPE html> <html>' + strStyle + '<body> <table> <tr><th><ScripNme></th><th>OI</th><th>IV</th><th>LTP</th><th>Strike Price</th></tr> ' + str + '</table></body> </html>'
     file2 = open("C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html","w")
     file2.writelines(str1)
     file2.close()
