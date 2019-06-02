@@ -2,7 +2,10 @@
 import requests
 import urlutils
 import fileutils
+import currutils
+from htmlgenutils import *
 import sys
+from babel.numbers import format_currency
 from bs4 import BeautifulSoup
 import html
 
@@ -68,46 +71,43 @@ def printOIPerScrip(scrip, datee):
             else:
                 colstrs.append(coltxt)
         rowstrs.append(colstrs)
-        
+
     rowstrs.sort(key = lambda x: float(x[1]))
     return rowstrs
-
 
 def openIs(datee):
     nifty50Scrips = getNifty50Scrips()
     scriptDic = {}
     #for scrip in nifty50Scrips:
     for scrip in [nifty50Scrips[0], nifty50Scrips[1], nifty50Scrips[2]]:
-        scriptDic(scrip) = printOIPerScrip(scrip, datee)
-
-    str = ''
-    for scrip in [nifty50Scrips[0], nifty50Scrips[1], nifty50Scrips[2]]:
         print("=============================================")
-        print("Scrip : %s" % scrip)
+        print("Generating for Scrip : %s" % scrip)
         print("=============================================")
-        str = str + '<tr> <td rowspan="3">%s </td>' % scrip
-        col = printOIPerScrip(scrip, datee)
-        str = str + col
+        scriptDic[scrip] = printOIPerScrip(scrip, datee)
+    return scriptDic
 
-    strStyle = '''<head>  
-                <style> 
-                table { 
-                border-collapse: collapse;
-                }
-
-                table, td, th {
-                border: 1px solid black;
-                }
-                </style>
-                </head> '''
-    str1 = '<!DOCTYPE html> <html>' + strStyle + '<body> <table> <tr><th><ScripNme></th><th>OI</th><th>IV</th><th>LTP</th><th>Strike Price</th></tr> ' + str + '</table></body> </html>'
-    file2 = open("C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html","w")
-    file2.writelines(str1)
-    print ("manga.html generated")
-    file2.close()
-
-openIs("27JUN2019")
+def genOIsHTML(datee):
+    oiDict = openIs(datee)
+    rowHeaders = ['ScripName', 'OI', 'IV', 'LTP', 'Strike Price']
+    rowsTxt = headerRowFromList(rowHeaders)
+    for eachKey in oiDict:
+        tableOfOIs = oiDict[eachKey]
+        colTxt = colOf(eachKey, 3) 
+        for i in range(-4,-1):
+            #rowstrs[-4][1], rowstrs[-4][4], rowstrs[-4][5], rowstrs[-4][11]
+            OI = currutils.genComma(tableOfOIs[i][1])
+            colTxt = colTxt + colOf(str(OI))
+            colTxt = colTxt + colOf(tableOfOIs[i][4])
+            colTxt = colTxt + colOf(tableOfOIs[i][5])
+            colTxt = colTxt + colOf(tableOfOIs[i][11])
+            rowsTxt = rowsTxt + rowOf(colTxt)
+            colTxt = '' # clear next col
+    htmltxt = genHTMLWithBody(tableOf(rowsTxt))
+    fileutils.writeStrToFile(htmltxt, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
+        
+#openIs("27JUN2019")
 #openIs(sys.argv[1])
+genOIsHTML("27JUN2019")
 
 #printOIPerScrip('M&M', '27JUN2019')
 #nifty50Scrips = getNifty50Scrips()

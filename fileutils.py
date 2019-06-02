@@ -18,3 +18,9 @@ def readCSVFile(filePath, delim):
             rows = line.split(delim)
             table.append(rows)
     return table
+
+def writeStrToFile(str, filePath):
+    file = open(filePath,"w")
+    file.writelines(str)
+    file.close()
+
