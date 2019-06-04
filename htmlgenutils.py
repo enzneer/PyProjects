@@ -3,13 +3,28 @@ def genHTMLWithBody(bodyTxt):
     <html>
         <head>  
             <style> 
-            table { 
-            border-collapse: collapse;
-            }
+                #customers {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                }
 
-            table, td, th {
-            border: 1px solid black;
-            }
+                #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+                }
+
+                #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+                #customers tr:hover {background-color: #ddd;}
+
+                #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+                }
             </style>
         </head> 
     <body>'''
@@ -18,8 +33,8 @@ def genHTMLWithBody(bodyTxt):
     </html>'''
     return strH + bodyTxt + strT
 
-def tableOf(rowTxt):
-    return '<table>\n' + rowTxt + '\n</table>\n'
+def tableOf(rowTxt, id='customers'):
+    return '<table id=%s>\n'%id + rowTxt + '\n</table>\n'
 
 def rowOf(colTxt):
     return '<tr>' + colTxt + '</tr>\n'
@@ -38,3 +53,9 @@ def colOf(valTxt, rowspan = 0):
         return '<td>' + valTxt + '</td>'
     else:
         return '<td rowspan=%s>\n'%str(rowspan) + valTxt + '\n</td>' 
+
+def rowFromList(listelems):
+    col = ''
+    for ele in listelems:
+        col = col + colOf(ele)
+    return rowOf(col)
