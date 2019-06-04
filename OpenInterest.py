@@ -65,8 +65,8 @@ def printOIPerScrip(scrip, datee, call=1):
 def openIs(datee, call=1):
     nifty50Scrips = getNifty50Scrips()
     scriptDic = {}
-    #for scrip in nifty50Scrips:
-    for scrip in [nifty50Scrips[0], nifty50Scrips[1]]:
+    for scrip in nifty50Scrips:
+    #for scrip in [nifty50Scrips[0], nifty50Scrips[1]]:
         print("=============================================")
         print("Generating for Scrip : %s" % scrip)
         print("=============================================")
