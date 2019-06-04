@@ -62,7 +62,7 @@ def printOIPerScrip(scrip, datee, call=1):
     rowstrs.sort(key = lambda x: float(x[call]))
     return rowstrs
 
-def openIs(datee):
+def openIs(datee, call=1):
     nifty50Scrips = getNifty50Scrips()
     scriptDic = {}
     #for scrip in nifty50Scrips:
@@ -70,12 +70,10 @@ def openIs(datee):
         print("=============================================")
         print("Generating for Scrip : %s" % scrip)
         print("=============================================")
-        scriptDic[scrip] = printOIPerScrip(scrip, datee, 1)
+        scriptDic[scrip] = printOIPerScrip(scrip, datee, call)
     return scriptDic
 
-def genOIsHTML(datee):
-    oiDict = openIs(datee)
-    
+def genHTMLTableForOIs(oiDict):
     rowHeaders = ['OI', 'IV', 'LTP', 'Strike Price', 'LTP',	'IV',	'Volume',	'OI']
     rowsTxt = ''
     for eachKey in oiDict:
@@ -99,10 +97,17 @@ def genOIsHTML(datee):
             colTxt = '' # clear next col
     htmltxt = genHTMLWithBody(tableOf(rowsTxt))
     fileutils.writeStrToFile(htmltxt, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
+
+def genOIsHTML(datee, call):
+    oiDict = openIs(datee, call)
+    genHTMLTableForOIs(oiDict)
+
         
 #openIs("27JUN2019")
 #openIs(sys.argv[1])
-genOIsHTML("27JUN2019")
+call  = 1
+put = 21
+genOIsHTML("27JUN2019", put)
 
 #printOIPerScrip('M&M', '27JUN2019')
 #nifty50Scrips = getNifty50Scrips()
