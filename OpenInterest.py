@@ -36,7 +36,7 @@ def getNifty50Scrips():
     scrips.pop(0) #remove first line
     return scrips
     
-def printOIPerScrip(scrip, datee, call=1):
+def printOIPerScrip(scrip, datee):
     url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTSTK&symbol=%s&date=%s" % (scrip.replace('&', '%26'), datee)
     filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\%s_oi.html" % scrip
     urlutils.writeToFile(url, filePath)
@@ -59,58 +59,56 @@ def printOIPerScrip(scrip, datee, call=1):
                 colstrs.append(coltxt)
         rowstrs.append(colstrs)
     rowstrs.pop() #remove last row which contain total trades
-    rowstrs.sort(key = lambda x: float(x[call]))
     return rowstrs
 
-def openIs(datee, call=1):
+def openIs(datee):
     nifty50Scrips = getNifty50Scrips()
     scriptDic = {}
-    for scrip in nifty50Scrips:
+    for scrip in [nifty50Scrips[0], nifty50Scrips[1]]:
     #for scrip in [nifty50Scrips[0], nifty50Scrips[1]]:
         print("=============================================")
         print("Generating for Scrip : %s" % scrip)
         print("=============================================")
-        scriptDic[scrip] = printOIPerScrip(scrip, datee, call)
+        scriptDic[scrip]= printOIPerScrip(scrip, datee)
     return scriptDic
 
 def genHTMLTableForOIs(oiDict, filePath):
     rowHeaders = ['OI', 'IV', 'LTP', 'Strike Price', 'LTP',	'IV',	'Volume',	'OI']
     rowsTxt = ''
+    callOrPut = {1:'call', 21: 'put'}
     for eachKey in oiDict:
-        rowsTxt = rowsTxt + headerRowFromList([eachKey,'', '', '', '', '', '', '']) 
-        rowsTxt = rowsTxt + headerRowFromList(rowHeaders)
-        tableOfOIs = oiDict[eachKey]        
-        colTxt = ''
-        for i in range(-4,-1):
-            #rowstrs[-4][1], rowstrs[-4][4], rowstrs[-4][5], rowstrs[-4][11]
-            OI = currutils.genComma(tableOfOIs[i][1])
-            colTxt = colTxt + colOf(str(OI))
-            colTxt = colTxt + colOf(tableOfOIs[i][4])
-            colTxt = colTxt + colOf(tableOfOIs[i][5])
-            colTxt = colTxt + colOf(tableOfOIs[i][11])
-            colTxt = colTxt + colOf(tableOfOIs[i][17])
-            colTxt = colTxt + colOf(tableOfOIs[i][18])
-            colTxt = colTxt + colOf(tableOfOIs[i][19])
-            OIP = currutils.genComma(tableOfOIs[i][21])
-            colTxt = colTxt + colOf(OIP)
-            rowsTxt = rowsTxt + rowOf(colTxt)
-            colTxt = '' # clear next col
+        for j in [1,21]:
+            rowsTxt = rowsTxt + headerRowFromList([eachKey, callOrPut[j], '', '', '', '', '', '']) 
+            rowsTxt = rowsTxt + headerRowFromList(rowHeaders)
+            tableOfOIs = oiDict[eachKey]        
+            colTxt = ''
+            oiDict[eachKey].sort(key = lambda x: float(x[j]))
+            for i in range(-4,-1):
+                #rowstrs[-4][1], rowstrs[-4][4], rowstrs[-4][5], rowstrs[-4][11]
+                OI = currutils.genComma(tableOfOIs[i][1])
+                colTxt = colTxt + colOf(str(OI))
+                colTxt = colTxt + colOf(tableOfOIs[i][4])
+                colTxt = colTxt + colOf(tableOfOIs[i][5])
+                colTxt = colTxt + colOf(tableOfOIs[i][11])
+                colTxt = colTxt + colOf(tableOfOIs[i][17])
+                colTxt = colTxt + colOf(tableOfOIs[i][18])
+                colTxt = colTxt + colOf(tableOfOIs[i][19])
+                OIP = currutils.genComma(tableOfOIs[i][21])
+                colTxt = colTxt + colOf(OIP)
+                rowsTxt = rowsTxt + rowOf(colTxt)
+                colTxt = '' # clear next col
     htmltxt = genHTMLWithBody(tableOf(rowsTxt))
-    #fileutils.writeStrToFile(htmltxt, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
     fileutils.writeStrToFile(htmltxt, filePath)
 
-def genOIsHTML(datee, call, filePath):
-    oiDict = openIs(datee, call)
+def genOIsHTML(datee, filePath):
+    oiDict = openIs(datee)
     genHTMLTableForOIs(oiDict, filePath)
 
         
 #openIs("27JUN2019")
 #openIs(sys.argv[1])
         
-call  = 1
-put = 21
-genOIsHTML("27JUN2019", put, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga_put.html')
-genOIsHTML("27JUN2019", call, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga_call.html')
+genOIsHTML("27JUN2019", 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
 
 
 #printOIPerScrip('M&M', '27JUN2019')
