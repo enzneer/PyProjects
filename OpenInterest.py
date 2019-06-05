@@ -73,7 +73,7 @@ def openIs(datee, call=1):
         scriptDic[scrip] = printOIPerScrip(scrip, datee, call)
     return scriptDic
 
-def genHTMLTableForOIs(oiDict):
+def genHTMLTableForOIs(oiDict, filePath):
     rowHeaders = ['OI', 'IV', 'LTP', 'Strike Price', 'LTP',	'IV',	'Volume',	'OI']
     rowsTxt = ''
     for eachKey in oiDict:
@@ -96,18 +96,22 @@ def genHTMLTableForOIs(oiDict):
             rowsTxt = rowsTxt + rowOf(colTxt)
             colTxt = '' # clear next col
     htmltxt = genHTMLWithBody(tableOf(rowsTxt))
-    fileutils.writeStrToFile(htmltxt, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
+    #fileutils.writeStrToFile(htmltxt, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga.html')
+    fileutils.writeStrToFile(htmltxt, filePath)
 
-def genOIsHTML(datee, call):
+def genOIsHTML(datee, call, filePath):
     oiDict = openIs(datee, call)
-    genHTMLTableForOIs(oiDict)
+    genHTMLTableForOIs(oiDict, filePath)
 
         
 #openIs("27JUN2019")
 #openIs(sys.argv[1])
+        
 call  = 1
 put = 21
-genOIsHTML("27JUN2019", put)
+genOIsHTML("27JUN2019", put, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga_put.html')
+genOIsHTML("27JUN2019", call, 'C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\manga_call.html')
+
 
 #printOIPerScrip('M&M', '27JUN2019')
 #nifty50Scrips = getNifty50Scrips()
