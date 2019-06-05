@@ -24,7 +24,7 @@ import html
 ##    return linkList
 
 def getNifty50Scrips():
-    filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\nse.csv"
+    filePath = "junk\\nse.csv"
     url = "https://www.nseindia.com/content/indices/ind_nifty50list.csv"
     urlutils.writeToFile(url, filePath)
     #Read csv
@@ -38,7 +38,7 @@ def getNifty50Scrips():
     
 def printOIPerScrip(scrip, datee):
     url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTSTK&symbol=%s&date=%s" % (scrip.replace('&', '%26'), datee)
-    filePath = "C:\\Users\\Manga\\Documents\\GitHub\\PyProj\\%s_oi.html" % scrip
+    filePath = "junk\\%s_oi.html" % scrip
     urlutils.writeToFile(url, filePath)
     fLines = fileutils.readFromFile(filePath)
     soup = BeautifulSoup(fLines, 'html.parser')

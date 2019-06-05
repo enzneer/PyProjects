@@ -1,0 +1,2593 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108453261-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108453261-1');
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NSE - National Stock Exchange of India Ltd.</title>
+<script type="text/javascript">
+var page=["livewth_optch","liveMarket"];
+</script>
+
+<script type="text/javascript" src="/common/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/common/js/mainNav.js"></script>
+<script type="text/javascript" src="/common/js/js.js"></script>
+<!--date util -->
+<script type="text/javascript" src="/live_market/resources/js/date.js"></script>
+
+<link href="/common/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/live_market/resources/css/live_market.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="/common/css/skin.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/common/images/favicon.ico" />
+
+
+<!--[if IE 8]>
+<link href="/common/css/ie8.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+<link href="/common/css/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 6]>
+<link href="/common/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!--<script type="text/javascript" src="/common/js/js.js"></script>-->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="/common/images/favicon.ico" /> -->
+<script language="javascript" src="/js/commonfuncs_homepage.js"></script>
+<script language="javascript" src="/js/sym_map/symbolMap.js"></script>
+<script language="javascript" src="/js/jquery.freezeheader.js"></script>
+
+<script type="text/javascript">
+var isIE=(document.all)?1:0;
+var isNS4=(document.layers)?1:0;
+var isNS6=((document.getElementById)&&(navigator.appName=='Netscape'))?1:0;
+var isNS=((isNS4)||(isNS6))?1:0;
+var DHTML=(isIE||isNS4||isNS6)?1:0;
+//capEvents();
+
+$(document).ready(function(){
+
+	$("#octable").freezeHeader();
+
+});
+
+function refresh()
+{
+	window.location.reload(true);
+}
+
+function validateForm()
+{
+	var date = document.getElementById("date").value;
+	if(date == "select")
+	{
+		alert("Please select Expiry date");
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function goBtnClick(strSymbol)
+{
+
+	//alert(strSymbol);
+	if(strSymbol == "index")
+	{	
+		var sym = document.ocForm.symbol.value = $("#optnContract").val();
+		if(sym == "select")
+		{
+			alert("Please select underlying Indices");
+			
+			return false;
+		}		
+		else
+		{	
+			if (sym.indexOf('%26')>=0){
+					location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+sym+'&instrument=OPTIDX&date=-&segmentLink=17';
+				}
+				else{
+			//alert('/marketinfo/sym_map/symbolMapping.jsp?symbol='+sym+'&instrument=OPTIDX&date=-&segmentLink=17');
+				//location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+escape(sym)+'&instrument=OPTIDX&date=-&segmentLink=17';
+				
+				
+				if(sym == "NIFTY")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10003&symbol=NIFTY&symbol=NIFTY&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYINFRA")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10004&symbol=NIFTYINFRA&symbol=NIFTYINFRA&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYIT")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10005&symbol=NIFTYIT&symbol=NIFTYIT&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYPSE")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10007&symbol=NIFTYPSE&symbol=NIFTYPSE&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "BANKNIFTY")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-9999&symbol=BANKNIFTY&symbol=BANKNIFTY&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+
+				if(sym == "NIFTYMID50")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10006&symbol=NIFTYMID50&symbol=NIFTYMID50&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+				
+				if(sym == "S&P500")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10008&symbol=S%26P500&symbol=S%26P500&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "FTSE100")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10001&symbol=FTSE100&symbol=FTSE100&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				if(sym == "NIFTYCPSE")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10004&symbol=NIFTYCPSE&symbol=NIFTYCPSE&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				}
+				
+		}	
+	}
+	if(strSymbol == "stock")
+	{	
+		var sym = $("#underlyStock").val();
+		sym = trimSpaces(sym);
+		if(sym=="Search for an underlying stock:")
+		{
+			alert("Please Enter underlying stock");
+		}
+		else	
+		{
+			if(sym.length<2)
+			{
+				alert("Please enter more than 2 character in underlying stock");
+			}
+			else
+			{	
+				var instru = document.ocForm.instrument.value;
+					location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+escape(sym)+'&instrument=OPTSTK&date=-&segmentLink=17';
+			}	
+		}
+	}
+}
+//capEvents();
+function popup ( url ) {
+    chartpopup = window.open( url,'chartspopup','location=no,menubar=no,toolbar=no,resizable=no,status=yes,width=780,height=500,scrollbars=yes,screenX=0,screenY=0,left=0,top=0');
+    chartpopup.focus();
+}
+function chartPopup(symbl, instrumen, dat, strke, calOrput, mainSymbol ){
+	var dFormat = "ddNNNyyyy";
+		var startDate = new Date(getDateFromFormat(dat,dFormat));
+		var tameDate = formatDate(startDate,'dd-MM-yyyy');
+	var url="/charts/webtame/webchart.jsp?OISymbol="+escape(mainSymbol)+"&CDSymbol="+escape(symbl)+"&Segment=FO&Instrument="+instrumen+"&Series=EQ&CDExpiryMonth=&FOExpiryMonth="+tameDate+"&IRFExpiryMonth=&CDDate1=&CDDate2=&PeriodType=2&Periodicity=1&StrikePrice="+strke+"&OptionType="+calOrput+"&Template=fo_options_Intrday.jsp";
+	popup ( url );
+	
+}
+
+function popup1 ( symbl,instrumen,dat,strke,calOrput ) {
+	symbl=encodeURIComponent(symbl);
+	instrumen=encodeURIComponent(instrumen);
+	dat=encodeURIComponent(dat);
+	strke=encodeURIComponent(strke);
+	calOrput=encodeURIComponent(calOrput);
+    url="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying="+symbl+"&instrument="+instrumen+"&expiry="+dat+"&type="+calOrput+"&strike="+strke
+    printpopup = window.open( url,'printpopup','location=no,menubar=yes,toolbar=no,resizable=yes,scrollbars=yes,status=yes,maximizable=true,screenX=0,screenY=0,left=0,top=0');printpopup.focus();
+    //location.href = url;
+}
+function submitRequest(symbol,instrument)
+{
+	var date = document.optionChain.expirydate.options[document.optionChain.expirydate.selectedIndex].value;
+	//alert(date);
+	//location.href = '/marketinfo/fo/optionKeys.jsp?symbol='+symbol+'&instrument='+instrument+'&date='+date;
+	location.href = '/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol='+symbol+'&instrument='+instrument+'&date='+date;
+}
+</script>
+<style>
+.tphead {
+    color: #EF620D;
+    padding: 0;
+}
+
+.srchpnl, .srchpnl2 {
+    font-size: 1.1em;
+    margin: 10px 0 0;
+}
+</style>
+</head>
+<body>
+
+ 
+<!--<form name="ocForm" id="ocForm" action="/marketinfo/sym_map/symbolMapping.jsp" method="get" onsubmit="return validate()" ><a name="top"></a> -->
+
+<body >
+<div id="container"> 
+	<!--Wrapper Start-->
+	<div id="wrapper"> 
+		
+		<!--Main Menu Start-->
+		<div id="main_menu"> </div>
+		<!--Main Menu End--> 
+	</div>
+	<div class="clear"></div>
+	<!--Wrapper End--> 
+	<!-- Content Big Start -->
+	<div class="content_big">
+		<div class="black_overlay" style="display:none"></div>
+		<div id="wrapper_btm">
+			<div class="main_content">
+				<div id="breadcrumb"></div></div>
+			<!-- Main Content Start-->
+						<br>
+				<table width="100%"><tr><td>
+				<div class="tphead"><h2>Option Chain (Equity Derivatives)</h2></div>
+				</td><td align="right">
+				<div style="float:right; font-size:1.2em;">
+
+				
+				<span >Underlying Stock: <b style="font-size:1.2em;">IOC 165.90</b>&nbsp;</span>
+				
+				<span>As on Jun 04, 2019 15:30:31 IST<a> <img src="/live_market/resources/images/refressbtn.gif" onclick="refresh();" style="cursor: pointer" title="refresh" /></a></span></div>
+				</td></tr></table>
+				<div class="srchpnl" style="padding:2px 0 2px 5px;height:25px;">
+				
+				<b>View Options Contracts for:</b> <span>
+					<select style="width:100px"  id="optnContract" name="optnContract" onchange="goBtnClick('index');" class="goodTextBox">					
+					<option value="select" selected>Select Index</option>
+					
+						
+									
+									<option  value="NIFTY" >NIFTY</option>
+							
+									
+									<option  value="NIFTYIT" >NIFTYIT</option>
+							
+									
+									<option  value="BANKNIFTY" >BANKNIFTY</option>
+							
+						</select>
+					</span>
+					<!--<div><input type="image" src="/live_market/resources/images/gobtn.gif" onclick="goBtnClick('index');" style="cursor: pointer"/>
+					</div>Sonal-->
+					<b>OR</b> <span>
+					<input style="width:170px" type="text" id="underlyStock" class="txtinp" style="text-transform:uppercase" value="Search for an underlying stock:" onfocus="if(this.value=='Search for an underlying stock:')this.value=''" onblur="if(this.value=='')this.value='Search for an underlying stock:'" onkeyup="if(event.keyCode==13){goBtnClick('stock');return false;}" />
+					</span>
+					<div>
+						<input type="image" src="/live_market/resources/images/gobtn.gif" alt="btn" onclick="goBtnClick('stock');" style="cursor: pointer"/>
+					</div>
+					
+					<form name="ocForm" id="ocForm"  onsubmit="return validateForm()" style="margin-top:0px;"><a name="top" ></a>
+						<input type="hidden" name="segmentLink" id="segmentLink" value="17" /> 
+						<input type="hidden" name="instrument" id="instrument" value="OPTSTK">
+						<input type="hidden" name="symbol" id="symbol" value="IOC">
+				<b>Filter by:</b><span> Expiry Date
+					<select style="width:100px" id="date" name="date" onchange="document.forms['ocForm'].submit();" class="goodTextBox">
+						
+						<option value="select"> Select </option>
+						
+						
+						
+								<option  value="27JUN2019" selected>27JUN2019</option>
+					
+						
+								<option  value="25JUL2019" >25JUL2019</option>
+					
+							
+					</select>			
+					</span>
+					</form>						
+					 <div style="width:110px;padding: 5px 10px;font-size: 1.1em;font-weight:bold;float: right;"><a href="/live_market/dynaContent/live_watch/fomwatchsymbol.jsp?key=IOC&Fut_Opt=Futures">Futures contracts</a></div>
+					
+				</div>
+				
+				
+				<table width="100%">
+				<tr ></tr>
+		
+				<tr ><td height="8"> </td></tr>
+				</table>
+				
+				
+				<div class="opttbldata">
+					<table id="octable" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th colspan="11">CALLS</th>
+							<th>&nbsp;</th>
+							<th colspan="11">PUTS</th>
+						</tr>
+						<tr>
+							<!-- <th>Quote </th>   -->
+							<th title="Chart">Chart</th>
+							<th title="Open Interest">OI</th>
+							<th title="Change in Open Interest">Chng in OI</th>
+							<th title="Traded Volume">Volume</th>
+							<th title="Implied Volatility">IV</th>
+							<th title="Last Traded Price">LTP</th>
+							<!--**-->
+							<th title="Net Change">Net Chng</th>
+							
+							<th title="Bid Quantity">Bid<br>Qty</th>
+							<th title="Bid Price">Bid<br>Price</th>
+							<th title="Ask Price">Ask<br>Price</th>
+							<th title="Ask Quantity">Ask<br>Qty</th>
+							<th title="Strike Price">Strike Price</th>
+							<th title="Bid Quantity">Bid<br>Qty</th>
+							<th title="Bid Price">Bid<br>Price</th>
+							<th title="Ask Price">Ask<br>Price</th>
+							<th title="Ask Quantity">Ask<br>Qty</th>
+							<th title="Net Change">Net Chng</th>							
+							<th title="Last Traded Price">LTP</th>
+							<th title="Implied Volatility">IV</th>
+							<th title="Traded Volume">Volume</th>	
+							<th title="Change in Open Interest">Chng in OI</th>
+							<th title="Open Interest">OI</th>
+							<th title="Chart">Chart</th>
+						</tr>
+						</thead>
+							
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '112.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=112.50&type=CE&expiry=27JUN2019" target="_blank"> 48.25</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 45.30</td>
+							<td class="ylwbg"> 66.80</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=112.50"><b>112.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','112.50','PE')"> 0.60</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=112.50&type=PE&expiry=27JUN2019" target="_blank"> 0.60</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 93.26</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 1</td>
+							<td class="nobg"> 3,500</td>
+						
+							<td class="nobg"> 3,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '112.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '115.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 43.30</td>
+							<td class="ylwbg"> 62.60</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=115.00"><b>115.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.70</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','115.00','PE')"> 0.05</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=115.00&type=PE&expiry=27JUN2019" target="_blank"> 0.05</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 60.78</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 2</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '115.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '117.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 41.30</td>
+							<td class="ylwbg"> 63.65</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=117.50"><b>117.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.55</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '117.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '120.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 39.25</td>
+							<td class="ylwbg"> 57.90</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=120.00"><b>120.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','120.00','PE')"> 0.20</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=120.00&type=PE&expiry=27JUN2019" target="_blank"> 0.20</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 3,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '120.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '122.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 37.25</td>
+							<td class="ylwbg"> 57.00</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=122.50"><b>122.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 1.90</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '122.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '125.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 35.25</td>
+							<td class="ylwbg"> 51.65</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=125.00"><b>125.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '125.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '127.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 87,500</td>
+							<td class="ylwbg"> 33.20</td>
+							<td class="ylwbg"> 48.80</td>
+							<td class="ylwbg"> 87,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=127.50"><b>127.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '127.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '130.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 35.35</td>
+							<td class="ylwbg"> 37.30</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=130.00"><b>130.00</b></a></td>
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 10,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '130.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '132.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 33.05</td>
+							<td class="ylwbg"> 34.70</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=132.50"><b>132.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 21,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '132.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '135.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 30.65</td>
+							<td class="ylwbg"> 32.45</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=135.00"><b>135.00</b></a></td>
+							<td class="nobg"> 14,000</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 21,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','135.00','PE')"> 0.60</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=135.00&type=PE&expiry=27JUN2019" target="_blank"> 0.60</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 3,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '135.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '137.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 28.15</td>
+							<td class="ylwbg"> 30.00</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=137.50"><b>137.50</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 0.65</td>
+							<td class="nobg"> 21,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '137.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '140.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 49,000</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=140.00&type=CE&expiry=27JUN2019" target="_blank"> 23.90</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 24,500</td>
+							<td class="ylwbg"> 25.75</td>
+							<td class="ylwbg"> 27.55</td>
+							<td class="ylwbg"> 10,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=140.00"><b>140.00</b></a></td>
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 0.30</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','140.00','PE')"> 0.35</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=140.00&type=PE&expiry=27JUN2019" target="_blank"> 0.35</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 42.90</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 21</td>
+							<td class="nobg"> 35,000</td>
+						
+							<td class="nobg"> 129,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '140.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '142.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=142.50&type=CE&expiry=27JUN2019" target="_blank"> 21.95</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 24,500</td>
+							<td class="ylwbg"> 23.25</td>
+							<td class="ylwbg"> 25.20</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=142.50"><b>142.50</b></a></td>
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 0.15</td>
+							<td class="nobg"> 0.80</td>
+							<td class="nobg"> 28,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '142.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '145.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=145.00&type=CE&expiry=27JUN2019" target="_blank"> 19.60</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 24,500</td>
+							<td class="ylwbg"> 21.00</td>
+							<td class="ylwbg"> 22.75</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=145.00"><b>145.00</b></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','145.00','PE')"> 0.45</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=145.00&type=PE&expiry=27JUN2019" target="_blank"> 0.45</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 37.92</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 3</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 10,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '145.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '147.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=147.50&type=CE&expiry=27JUN2019" target="_blank"> 17.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 14,000</td>
+							<td class="ylwbg"> 18.75</td>
+							<td class="ylwbg"> 20.35</td>
+							<td class="ylwbg"> 14,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=147.50"><b>147.50</b></a></td>
+							<td class="nobg"> 35,000</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 1.20</td>
+							<td class="nobg"> 35,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '147.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '150.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 49,000</td>
+							<td class="ylwbg"> -7,000</td>
+							<td class="ylwbg"> 5</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 24.43</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=150.00&type=CE&expiry=27JUN2019" target="_blank"> 17.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -3.10</td>
+							
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 16.90</td>
+							<td class="ylwbg"> 18.05</td>
+							<td class="ylwbg"> 24,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=150.00"><b>150.00</b></a></td>
+							<td class="nobg"> 14,000</td>
+							<td class="nobg"> 0.80</td>
+							<td class="nobg"> 0.90</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','150.00','PE')"> 0.80</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=150.00&type=PE&expiry=27JUN2019" target="_blank"> 0.80</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 35.71</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 62</td>
+							<td class="nobg"> 56,000</td>
+						
+							<td class="nobg"> 518,000</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '150.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '152.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 14,000</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=152.50&type=CE&expiry=27JUN2019" target="_blank"> 18.15</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 14.70</td>
+							<td class="ylwbg"> 15.85</td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=152.50"><b>152.50</b></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 1.50</td>
+							<td class="nobg"> 17,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','152.50','PE')"> 1.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=152.50&type=PE&expiry=27JUN2019" target="_blank"> 1.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 101,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '152.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '155.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 101,500</td>
+							<td class="ylwbg"> 10,500</td>
+							<td class="ylwbg"> 6</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 26.73</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=155.00&type=CE&expiry=27JUN2019" target="_blank"> 12.60</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -3.20</td>
+							
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 12.80</td>
+							<td class="ylwbg"> 15.70</td>
+							<td class="ylwbg"> 70,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=155.00"><b>155.00</b></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 1.45</td>
+							<td class="nobg"> 1.70</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.15</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','155.00','PE')"> 1.45</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=155.00&type=PE&expiry=27JUN2019" target="_blank"> 1.45</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 34.04</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 151</td>
+							<td class="nobg"> -35,000</td>
+						
+							<td class="nobg"> 444,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '155.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '157.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg"> -3,500</td>
+							<td class="ylwbg"> 1</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 30.69</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=157.50&type=CE&expiry=27JUN2019" target="_blank"> 11.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -3.00</td>
+							
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 10.85</td>
+							<td class="ylwbg"> 11.60</td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=157.50"><b>157.50</b></a></td>
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 2.00</td>
+							<td class="nobg"> 2.60</td>
+							<td class="nobg"> 31,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.45</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','157.50','PE')"> 2.20</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=157.50&type=PE&expiry=27JUN2019" target="_blank"> 2.20</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 35.38</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 44</td>
+							<td class="nobg"> -10,500</td>
+						
+							<td class="nobg"> 94,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '157.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '160.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 266,000</td>
+							<td class="ylwbg"> -66,500</td>
+							<td class="ylwbg"> 30</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 27.89</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=160.00&type=CE&expiry=27JUN2019" target="_blank"> 8.80</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -2.50</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 9.10</td>
+							<td class="ylwbg"> 9.75</td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=160.00"><b>160.00</b></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 2.80</td>
+							<td class="nobg"> 2.95</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.50</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','160.00','PE')"> 2.80</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=160.00&type=PE&expiry=27JUN2019" target="_blank"> 2.80</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 34.36</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 300</td>
+							<td class="nobg"> 66,500</td>
+						
+							<td class="nobg"> 738,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '160.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '162.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 105,000</td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 5</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 29.74</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=162.50&type=CE&expiry=27JUN2019" target="_blank"> 7.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -2.40</td>
+							
+							<td class="ylwbg"> 21,000</td>
+							<td class="ylwbg"> 7.35</td>
+							<td class="ylwbg"> 7.95</td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=162.50"><b>162.50</b></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 3.35</td>
+							<td class="nobg"> 3.50</td>
+							<td class="nobg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.70</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','162.50','PE')"> 3.60</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=162.50&type=PE&expiry=27JUN2019" target="_blank"> 3.60</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 33.76</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 39</td>
+							<td class="nobg"> 10,500</td>
+						
+							<td class="nobg"> 133,000</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '162.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '165.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="ylwbg"> 189,000</td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg"> 46</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 31.95</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=165.00&type=CE&expiry=27JUN2019" target="_blank"> 6.30</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -1.60</td>
+							
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 6.15</td>
+							<td class="ylwbg"> 6.65</td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=165.00"><b>165.00</b></a></td>
+							<td class="nobg"> 7,000</td>
+							<td class="nobg"> 4.45</td>
+							<td class="nobg"> 4.60</td>
+							<td class="nobg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.85</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','165.00','PE')"> 4.55</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=165.00&type=PE&expiry=27JUN2019" target="_blank"> 4.55</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 33.09</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 180</td>
+							<td class="nobg"> -66,500</td>
+						
+							<td class="nobg"> 196,000</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '165.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '167.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 80,500</td>
+							<td class="nobg"> -3,500</td>
+							<td class="nobg"> 24</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 30.17</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=167.50&type=CE&expiry=27JUN2019" target="_blank"> 4.75</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -2.00</td>
+							
+							<td class="nobg"> 7,000</td>
+							<td class="nobg"> 4.95</td>
+							<td class="nobg"> 5.20</td>
+							<td class="nobg"> 10,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=167.50"><b>167.50</b></a></td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 5.55</td>
+							<td class="ylwbg"> 5.85</td>
+							<td class="ylwbg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Green;"> 1.25</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','167.50','PE')"> 6.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=167.50&type=PE&expiry=27JUN2019" target="_blank"> 6.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 34.39</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 87</td>
+							<td class="ylwbg"> -91,000</td>
+						
+							<td class="ylwbg"> 52,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '167.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '170.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 623,000</td>
+							<td class="nobg"> -14,000</td>
+							<td class="nobg"> 241</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 32.10</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=170.00&type=CE&expiry=27JUN2019" target="_blank"> 4.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -1.45</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 3.95</td>
+							<td class="nobg"> 4.10</td>
+							<td class="nobg"> 21,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=170.00"><b>170.00</b></a></td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 6.85</td>
+							<td class="ylwbg"> 7.30</td>
+							<td class="ylwbg"> 7,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Green;"> 1.25</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','170.00','PE')"> 7.05</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=170.00&type=PE&expiry=27JUN2019" target="_blank"> 7.05</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 32.21</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 80</td>
+							<td class="ylwbg"> -84,000</td>
+						
+							<td class="ylwbg"> 147,000</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '170.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '172.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 115,500</td>
+							<td class="nobg"> 28,000</td>
+							<td class="nobg"> 25</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 32.41</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=172.50&type=CE&expiry=27JUN2019" target="_blank"> 3.15</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -1.15</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 3.05</td>
+							<td class="nobg"> 3.20</td>
+							<td class="nobg"> 10,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=172.50"><b>172.50</b></a></td>
+							<td class="ylwbg"> 7,000</td>
+							<td class="ylwbg"> 8.40</td>
+							<td class="ylwbg"> 9.55</td>
+							<td class="ylwbg"> 10,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Green;"> 0.05</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','172.50','PE')"> 7.75</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=172.50&type=PE&expiry=27JUN2019" target="_blank"> 7.75</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 26.41</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 1</td>
+							<td class="ylwbg"> -3,500</td>
+						
+							<td class="ylwbg"> 24,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '172.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '175.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 311,500</td>
+							<td class="nobg"> 14,000</td>
+							<td class="nobg"> 131</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 31.64</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=175.00&type=CE&expiry=27JUN2019" target="_blank"> 2.30</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -1.10</td>
+							
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 2.30</td>
+							<td class="nobg"> 2.50</td>
+							<td class="nobg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=175.00"><b>175.00</b></a></td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 10.25</td>
+							<td class="ylwbg"> 11.00</td>
+							<td class="ylwbg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','175.00','PE')"> 12.20</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=175.00&type=PE&expiry=27JUN2019" target="_blank"> 12.20</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 17,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '175.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '177.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 52,500</td>
+							<td class="nobg"> 7,000</td>
+							<td class="nobg"> 7</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 31.91</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=177.50&type=CE&expiry=27JUN2019" target="_blank"> 1.75</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.75</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 1.75</td>
+							<td class="nobg"> 2.00</td>
+							<td class="nobg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=177.50"><b>177.50</b></a></td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 11.90</td>
+							<td class="ylwbg"> 13.10</td>
+							<td class="ylwbg"> 31,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '177.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '180.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 871,500</td>
+							<td class="nobg"> -38,500</td>
+							<td class="nobg"> 195</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 32.47</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=180.00&type=CE&expiry=27JUN2019" target="_blank"> 1.35</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.60</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 1.30</td>
+							<td class="nobg"> 1.45</td>
+							<td class="nobg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=180.00"><b>180.00</b></a></td>
+							<td class="ylwbg"> 17,500</td>
+							<td class="ylwbg"> 13.85</td>
+							<td class="ylwbg"> 15.20</td>
+							<td class="ylwbg"> 31,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','180.00','PE')"> 19.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=180.00&type=PE&expiry=27JUN2019" target="_blank"> 19.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 3,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '180.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '182.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 1</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 33.66</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=182.50&type=CE&expiry=27JUN2019" target="_blank"> 1.10</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -6.85</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 0.75</td>
+							<td class="nobg"> 1.40</td>
+							<td class="nobg"> 28,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=182.50"><b>182.50</b></a></td>
+							<td class="ylwbg"> 38,500</td>
+							<td class="ylwbg"> 15.90</td>
+							<td class="ylwbg"> 17.55</td>
+							<td class="ylwbg"> 21,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '182.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '185.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 196,000</td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 4</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 31.76</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=185.00&type=CE&expiry=27JUN2019" target="_blank"> 0.65</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.45</td>
+							
+							<td class="nobg"> 7,000</td>
+							<td class="nobg"> 0.60</td>
+							<td class="nobg"> 0.90</td>
+							<td class="nobg"> 10,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=185.00"><b>185.00</b></a></td>
+							<td class="ylwbg"> 3,500</td>
+							<td class="ylwbg"> 18.40</td>
+							<td class="ylwbg"> 19.45</td>
+							<td class="ylwbg"> 3,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','185.00','PE')"> 23.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=185.00&type=PE&expiry=27JUN2019" target="_blank"> 23.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 3,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '185.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '187.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=187.50&type=CE&expiry=27JUN2019" target="_blank"> 0.85</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 28,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=187.50"><b>187.50</b></a></td>
+							<td class="ylwbg"> 31,500</td>
+							<td class="ylwbg"> 20.35</td>
+							<td class="ylwbg"> 22.10</td>
+							<td class="ylwbg"> 14,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '187.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '190.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 367,500</td>
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 37</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 33.51</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=190.00&type=CE&expiry=27JUN2019" target="_blank"> 0.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							<td class="nobg"> 7,000</td>
+							<td class="nobg"> 0.30</td>
+							<td class="nobg"> 0.45</td>
+							<td class="nobg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=190.00"><b>190.00</b></a></td>
+							<td class="ylwbg"> 31,500</td>
+							<td class="ylwbg"> 22.80</td>
+							<td class="ylwbg"> 24.45</td>
+							<td class="ylwbg"> 31,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '190.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '192.50','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 3,500</td>
+							<td class="nobg"> 0.15</td>
+							<td class="nobg"> 0.65</td>
+							<td class="nobg"> 31,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=192.50"><b>192.50</b></a></td>
+							<td class="ylwbg"> 24,500</td>
+							<td class="ylwbg"> 25.20</td>
+							<td class="ylwbg"> 26.75</td>
+							<td class="ylwbg"> 14,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '192.50','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '195.00','CE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph" /></a></td>
+							<td class="nobg"> 17,500</td>
+							<td class="nobg"> -3,500</td>
+							<td class="nobg"> 1</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 38.59</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=195.00&type=CE&expiry=27JUN2019" target="_blank"> 0.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.10</td>
+							
+							<td class="nobg"> 28,000</td>
+							<td class="nobg"> 0.10</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 3,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=IOC&instrument=OPTSTK&strike=195.00"><b>195.00</b></a></td>
+							<td class="ylwbg"> 14,000</td>
+							<td class="ylwbg"> 27.45</td>
+							<td class="ylwbg"> 29.20</td>
+							<td class="ylwbg"> 14,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('IOC','OPTSTK','27JUN2019','195.00','PE')"> 26.70</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=IOC&instrument=OPTSTK&strike=195.00&type=PE&expiry=27JUN2019" target="_blank"> 26.70</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 10,500</td>
+
+							<td><a href="javascript:chartPopup('IOC', 'OPTSTK', '27JUN2019', '195.00','PE','');"><img src="/live_market/resources/images/grficon.gif" alt="Graph"/></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+<tr>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b>Total</b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 3,493,000</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b></b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 759</b></td>
+	<td colspan="15"></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 971</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b></b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 2,635,500</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b>Total</b></td>
+</tr>
+		
+
+					</table>
+					
+				</div>
+				<br />
+				<table width="100%"><tbody><tr align="center"><td><a href="#top">Top</a></td></tr></tbody></table>
+			<!-- Main Content End -->
+			
+		 <div class="notes">
+							
+								<p class="title" style="width: 100%; padding: 3px 0;color: #454444;float: left;font-size: 1.2em;"><b>Note <b>: <br><br> 10% interest rate is applied while computing implied volatility.</p>
+							
+							<br/><br/>
+							 <p class="title" style="width: 100%; padding: 3px 0; border-bottom: 1px solid #CCCCCC;color: #454444;float: left;font-size: 1.2em;"> Open Interest values in the option chain are refreshed at the end of the day after bhavcopy file has been made available on the website.</p>
+
+						 <ul class="noteul_child">
+						 <br/><br/>
+						
+							<li style="background: none repeat scroll 0pt 0pt transparent; clear: both; float: left; font-size: 1.1em; padding: 2px 0pt 2px 12px; width: 520px;"><img align="left" alt="highlighted" src="/live_market/resources/images/blbox.gif" /> &nbsp;Highlighted options are in-the-money.</li>
+						</ul>
+					</div>
+			<!--Footer Start-->
+			<div id="footer">
+				
+			</div>
+			<!--Footer End-->
+			<div class="clear"></div>
+		</div>
+		<!--Wrapper Bottom End--> 
+	</div>
+	<!--Content Big End--> 
+</div>
+<div class="footer_nav_main">
+	<div id="footer_nav">
+		
+	</div>
+</div>
+</body>
+</html>
+
