@@ -42,6 +42,9 @@ def printOIPerScrip(scrip, datee):
     urlutils.writeToFile(url, filePath)
     fLines = fileutils.readFromFile(filePath)
     soup = BeautifulSoup(fLines, 'html.parser')
+    firsttable = soup.find_all('table')[0] 
+    bText = firsttable.find_all('tr')[0].find('b').text
+    bL =  bText.split(' ')
     table = soup.find("table", { "id" : "octable" })
     rows = table.findAll('tr') 
     rowstrs = []
@@ -59,28 +62,30 @@ def printOIPerScrip(scrip, datee):
                 colstrs.append(coltxt)
         rowstrs.append(colstrs)
     rowstrs.pop() #remove last row which contain total trades
-    return rowstrs
+    return (bL[1], rowstrs)
 
 def openIsOfScrips(datee, scrips):
     scriptDic = {}
+    cVals = []
     for scrip in scrips:
     #for scrip in [nifty50Scrips[0], nifty50Scrips[1]]:
         print("=============================================")
         print("Generating for Scrip : %s" % scrip)
         print("=============================================")
-        scriptDic[scrip]= printOIPerScrip(scrip, datee)
-    return scriptDic
+        cVal, scriptDic[scrip]= printOIPerScrip(scrip, datee)
+        cVals.append(cVal)
+    return cVals,scriptDic
 
 def openIsOfNifty50(datee):
     nifty50Scrips = getNifty50Scrips()
     return openIsOfScrips(datee, nifty50Scrips)
 
-def genHTMLTableForOIs(oiDict, filePath):
+def genHTMLTableForOIs(cVals, oiDict, filePath):
     rowHeaders = ['OI', 'IV', 'LTP', 'Strike Price', 'Strike Price', 'LTP',	'IV', 'OI']
     rowsTxt = ''
     callOrPut = [1, 21] # 1 and 21 are the open interest values OI
-    for eachKey in oiDict:
-        rowsTxt = rowsTxt + headerRowFromList([eachKey, 'call=>', '', '', '', '', '', '<=put']) 
+    for eachKey,cVal in zip(oiDict, cVals):
+        rowsTxt = rowsTxt + headerRowFromList([eachKey, cVal, '', 'call', 'put', '', '', '']) 
         rowsTxt = rowsTxt + headerRowFromList(rowHeaders)
         tableOfOIs = oiDict[eachKey]        
         colTxt = ''
@@ -111,12 +116,12 @@ def genHTMLTableForOIs(oiDict, filePath):
     fileutils.writeStrToFile(htmltxt, filePath)
 
 def genOIsHTMLForNifty50(datee, filePath):
-    oiDict = openIsOfNifty50(datee)
-    genHTMLTableForOIs(oiDict, filePath)
+    cVals, oiDict = openIsOfNifty50(datee)
+    genHTMLTableForOIs(cVals, oiDict, filePath)
 
 def genOIsHTMLForScrips(datee, scrips, filePath):
-    oiDict = openIsOfScrips(datee, scrips)
-    genHTMLTableForOIs(oiDict, filePath)
+    cVals, oiDict = openIsOfScrips(datee, scrips)
+    genHTMLTableForOIs(cVals, oiDict, filePath)
         
 #openIs("27JUN2019")
 #openIs(sys.argv[1])
